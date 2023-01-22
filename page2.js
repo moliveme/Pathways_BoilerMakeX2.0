@@ -1013,15 +1013,21 @@ for (let i = 0; i < rec.get("Humanities").length; i++) {
     document.getElementById('Humanities1').innerHTML += (rec.get("Humanities")[i] + "<br>");
     
     if (parseInt(sorted_course_counter.get(rec.get("Humanities")[i])[0]) > 1) { //course satisfies >1 requirement
-        document.getElementById('Humanities1').innerHTML += ("Satisfies ") //MRIDU reduce font size
+        document.getElementById('Humanities1').innerHTML += ("Also satisfies ") //MRIDU reduce font size
     
         for (let j = 0; j < parseInt(sorted_course_counter.get(rec.get("Humanities")[i])[0]); j++) {
             console.log("done")
             //THIS WORKS
-            document.getElementById('Humanities1').innerHTML +=  (sorted_course_counter.get(rec.get("Humanities")[i])[1][j] + ",<br>") //MRIDU reduce font size
+            if (j < parseInt(sorted_course_counter.get(rec.get("Humanities")[i])[0]) - 1) {
+                document.getElementById('Humanities1').innerHTML +=  (sorted_course_counter.get(rec.get("Humanities")[i])[1][j] + ",<br>") //MRIDU reduce font size
+            } else {
+                document.getElementById('Humanities1').innerHTML +=  (sorted_course_counter.get(rec.get("Humanities")[i])[1][j] + "<br>")
+            }
         }
         document.getElementById('Humanities1').innerHTML +=  "<br>"
-        }
+    } else {
+        document.getElementById('Humanities1').innerHTML += "<br>"
+    }
     
 }
 
