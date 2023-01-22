@@ -1174,7 +1174,7 @@ for (let i = 0; i < rec.get("Technical Presentation").length; i++) {
     document.getElementById('Technical-Presentation1').innerHTML += (rec.get("Technical Presentation")[i] + "<br>");
     
     if (parseInt(sorted_course_counter.get(rec.get("Technical Presentation")[i])[0]) > 1) { //course satisfies >1 requirement
-        document.getElementById('Technical-Presentation1').innerHTML += ("Satisfies ") //MRIDU reduce font size
+        document.getElementById('Technical-Presentation1').innerHTML += "Satisfies "; //MRIDU reduce font size
     
         for (let j = 0; j < parseInt(sorted_course_counter.get(rec.get("Technical Presentation")[i])[0]);j++) {
             document.getElementById('Technical-Presentation1').innerHTML +=  sorted_course_counter.get(rec.get("Technical Presentation")[i])[1][j] + ",<br>" //MRIDU reduce font size
