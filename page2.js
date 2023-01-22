@@ -1031,7 +1031,7 @@ for (let i = 0; i < rec.get("Humanities").length; i++) {
     }
     
 }
-
+ 
 for (let i = 0; i < rec.get("Behavioural Science").length; i++) {
 
     document.getElementById('Behavioural-Science1').innerHTML += "<div>" + (rec.get("Behavioural Science")[i] + "<br>");
