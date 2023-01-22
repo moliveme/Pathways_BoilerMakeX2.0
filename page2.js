@@ -942,48 +942,49 @@ course_counter_temp.get(courses[0])
 for (let i = 0; i < courses.length; i++) {
     for (let j = 0; j < parseInt(course_counter_temp.get(courses[i])[0]);j++) {
         console.log("whats up")
+        let link = "https://www.ratemycourses.io/purdue/course/" + courses[i];
         switch (course_counter.get(courses[i])[1][j]) {
             case "Humanities":
-                document.getElementById('Humanities').innerHTML += (courses[i]+"<br>");
+                document.getElementById('Humanities').innerHTML += courses[i] + ": " + '<a href="' + link + '">Rating</a>' + "<br>";
                 break;
             case "Behavioural Science":
-                document.getElementById('Behavioural-Science').innerHTML += (courses[i]+"<br>");
+                document.getElementById('Behavioural-Science').innerHTML += courses[i] + ": " + '<a href="' + link + '">Rating</a>' + "<br>";
                 break;
             case "Oral Communication":
-                document.getElementById('Oral-Communication').innerHTML += (courses[i]+"<br>");
+                document.getElementById('Oral-Communication').innerHTML += courses[i] + ": " + '<a href="' + link + '">Rating</a>' + "<br>";
                 break;
             case "Information Literacy":
-                document.getElementById('Information-Literacy').innerHTML += (courses[i]+"<br>");
+                document.getElementById('Information-Literacy').innerHTML += courses[i] + ": " + '<a href="' + link + '">Rating</a>' + "<br>";
                 break;
             case "Quantitative Reasoning":
-                document.getElementById('Quantitative-Reasoning').innerHTML += (courses[i]+"<br>");
+                document.getElementById('Quantitative-Reasoning').innerHTML += courses[i] + ": " + '<a href="' + link + '">Rating</a>' + "<br>";
                 break;
             case "Science":
-                console.log("SCIENCE")
-                document.getElementById('Science').innerHTML += (courses[i]+"<br>");
+                document.getElementById('Science').innerHTML += courses[i] + ": " + '<a href="' + link + '">Rating</a>' + "<br>";
                 break;
             case "Science, Tech and Society":
-                document.getElementById('Science-Tech-and-Society').innerHTML += (courses[i]+"<br>");
+                document.getElementById('Science-Tech-and-Society').innerHTML += courses[i] + ": " + '<a href="' + link + '">Rating</a>' + "<br>";
                 break;
             case "Written Composition":
-                document.getElementById('Written-Composition').innerHTML += (courses[i]+"<br>");
+                document.getElementById('Written-Composition').innerHTML += courses[i] + ": " + '<a href="' + link + '">Rating</a>' + "<br>";
                 break;
             case "Greater Issues in Science":
-                document.getElementById('Greater-Issues-in-Science').innerHTML += (courses[i]+"<br>");
+                document.getElementById('Greater-Issues-in-Science').innerHTML += courses[i] + ": " + '<a href="' + link + '">Rating</a>' + "<br>";
                 break;
             case "Laboratory Science":
-                document.getElementById('Laboratory-Science').innerHTML += (courses[i]+"<br>");
+                document.getElementById('Laboratory-Science').innerHTML += courses[i] + ": " + '<a href="' + link + '">Rating</a>' + "<br>";
                 break;
             case "Languages":
-                document.getElementById('Languages').innerHTML += (courses[i]+"<br>");
+                document.getElementById('Languages').innerHTML += courses[i] + ": " + '<a href="' + link + '">Rating</a>' + "<br>";
                 break;
             case "Technical Writing":
-                document.getElementById('Technical-Writing').innerHTML += (courses[i]+"<br>");
+                document.getElementById('Technical-Writing').innerHTML += courses[i] + ": " + '<a href="' + link + '">Rating</a>' + "<br>";
                 break;
             case "Technical Presentation":
-                document.getElementById('Technical-Presentation').innerHTML += (courses[i]+"<br>");
+                document.getElementById('Technical-Presentation').innerHTML += courses[i] + ": " + '<a href="' + link + '">Rating</a>' + "<br>";
                 break;
             }
+  
     }
     course_counter_temp.delete(courses[i]);
     rec_copy.delete(courses[i]);
@@ -1010,10 +1011,10 @@ for (let i = 0; i < courses.length; i++) {
 
 for (let i = 0; i < rec.get("Humanities").length; i++) {
 
-    document.getElementById('Humanities1').innerHTML += (rec.get("Humanities")[i] + "<br>");
+    document.getElementById('Humanities1').innerHTML += "<div>" + (rec.get("Humanities")[i] + "<br>");
     
     if (parseInt(sorted_course_counter.get(rec.get("Humanities")[i])[0]) > 1) { //course satisfies >1 requirement
-        document.getElementById('Humanities1').innerHTML += ("Also satisfies ") //MRIDU reduce font size
+        document.getElementById('Humanities1').innerHTML += ("Satisfies ") //MRIDU reduce font size
     
         for (let j = 0; j < parseInt(sorted_course_counter.get(rec.get("Humanities")[i])[0]); j++) {
             console.log("done")
@@ -1021,27 +1022,36 @@ for (let i = 0; i < rec.get("Humanities").length; i++) {
             if (j < parseInt(sorted_course_counter.get(rec.get("Humanities")[i])[0]) - 1) {
                 document.getElementById('Humanities1').innerHTML +=  (sorted_course_counter.get(rec.get("Humanities")[i])[1][j] + ",<br>") //MRIDU reduce font size
             } else {
-                document.getElementById('Humanities1').innerHTML +=  (sorted_course_counter.get(rec.get("Humanities")[i])[1][j] + "<br>")
+                document.getElementById('Humanities1').innerHTML +=  (sorted_course_counter.get(rec.get("Humanities")[i])[1][j] + "</div><br>")
             }
         }
         document.getElementById('Humanities1').innerHTML +=  "<br>"
     } else {
-        document.getElementById('Humanities1').innerHTML += "<br>"
+        document.getElementById('Humanities1').innerHTML += "</div><br>"
     }
     
 }
 
 for (let i = 0; i < rec.get("Behavioural Science").length; i++) {
-    document.getElementById('Behavioural-Science1').innerHTML += (rec.get("Behavioural Science")[i] + "<br>");
+
+    document.getElementById('Behavioural-Science1').innerHTML += "<div>" + (rec.get("Behavioural Science")[i] + "<br>");
     
     if (parseInt(sorted_course_counter.get(rec.get("Behavioural Science")[i])[0]) > 1) { //course satisfies >1 requirement
         document.getElementById('Behavioural-Science1').innerHTML += ("Satisfies ") //MRIDU reduce font size
     
-        for (let j = 0; j < parseInt(sorted_course_counter.get(rec.get("Behavioural Science")[i])[0]) ; j++) {
-            document.getElementById('Behavioural-Science1').innerHTML +=  sorted_course_counter.get(rec.get("Behavioural Science")[i])[1][j] + ",<br>" //MRIDU reduce font size
+        for (let j = 0; j < parseInt(sorted_course_counter.get(rec.get("Behavioural Science")[i])[0]); j++) {
+            console.log("done")
+            //THIS WORKS
+            if (j < parseInt(sorted_course_counter.get(rec.get("Behavioural Science")[i])[0]) - 1) {
+                document.getElementById('Behavioural-Science1').innerHTML +=  (sorted_course_counter.get(rec.get("Behavioural Science")[i])[1][j] + ",<br>") //MRIDU reduce font size
+            } else {
+                document.getElementById('Behavioural-Science1').innerHTML +=  (sorted_course_counter.get(rec.get("Behavioural Science")[i])[1][j] + "</div><br>")
+            }
         }
         document.getElementById('Behavioural-Science1').innerHTML +=  "<br>"
-        }
+    } else {
+        document.getElementById('Behavioural-Science1').innerHTML += "</div><br>"
+    }
     
 }
 
